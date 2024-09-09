@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XBeautyApp.ProductDetailsPage"
+             Title="{Binding Name}">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Image Source="{Binding ImageLink}"
+                   HeightRequest="200"
+                   Aspect="AspectFit" />
+
+            <Label Text="{Binding Name}" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" />
+
+            <Label Text="{Binding Brand}" 
+                   FontSize="Medium" />
+
+            <Label Text="{Binding PriceDisplay}" 
+                   FontSize="Medium" 
+                   Margin="0,10,0,0" />
+
+            <Label Text="{Binding ProductType, StringFormat='Tip proizvoda: {0}'}"
+                   FontSize="Medium" />
+
+            <Label Text="{Binding Category, StringFormat='Kategorija: {0}'}"
+                   FontSize="Medium" />
+
+            <Label Text="Opis:" 
+                   FontSize="Medium" 
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0" />
+
+            <Label Text="{Binding Description}" 
+                   FontSize="Small" />
+
+            <Label Text="{Binding Rating, StringFormat='Ocjena: {0}'}" 
+                   FontSize="Medium"
+                   Margin="0,20,0,0" />
+
+            <Label Text="Oznake:" 
+                   FontSize="Medium" 
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0" />
+
+            <FlexLayout BindableLayout.ItemsSource="{Binding TagList}"
+                        Wrap="Wrap">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="5" Margin="0,0,5,5" BackgroundColor="LightGray">
+                            <Label Text="{Binding .}" FontSize="Small" />
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+            <Button Text="Otvori stranicu proizvoda"
+                    Clicked="OnProductLinkClicked"
+                    Margin="0,20,0,0" />
+
+            <Button Text="Otvori stranicu kompanije"
+                    Clicked="OnWebsiteLinkClicked"
+                    Margin="0,10,0,0" />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

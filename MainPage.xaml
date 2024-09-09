@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XBeautyApp.MainPage"
+             Title="X-Beauty Proizvodi">
+
+    <Grid RowDefinitions="Auto,*">
+        <SearchBar x:Name="SearchBar"
+                   Placeholder="Pretraži proizvode po brendu"
+                   SearchButtonPressed="OnSearchButtonPressed" />
+
+        <CollectionView x:Name="ProductsCollection"
+                        Grid.Row="1"
+                        ItemsSource="{Binding Products}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnProductSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" ColumnDefinitions="Auto,*">
+                        <Image Grid.Column="0"
+                               Source="{Binding ImageLink}"
+                               HeightRequest="100"
+                               WidthRequest="100"
+                               Aspect="AspectFit" />
+                        <StackLayout Grid.Column="1" Padding="10,0,0,0">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" />
+                            <Label Text="{Binding Brand}" />
+                            <Label Text="{Binding PriceDisplay}" />
+                            <Label Text="{Binding ProductType, StringFormat='Tip: {0}'}" />
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
