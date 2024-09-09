@@ -25,19 +25,19 @@ public static class ApiService
         catch (JsonException ex)
         {
             Console.WriteLine($"JSON deserialization error: {ex.Message}");
-            // Možete ovdje dodati logiku za prikazivanje poruke korisniku
+            
             return new List<Product>();
         }
         catch (HttpRequestException ex)
         {
             Console.WriteLine($"HTTP request error: {ex.Message}");
-            // Možete ovdje dodati logiku za prikazivanje poruke korisniku
+            
             return new List<Product>();
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Unexpected error: {ex.Message}");
-            // Možete ovdje dodati logiku za prikazivanje poruke korisniku
+            
             return new List<Product>();
         }
     }
